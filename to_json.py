@@ -13,4 +13,3 @@ def obj_to_json(obj):
             string += obj_to_json(obj[i]) + ",\n"
         string += obj_to_json(obj[len(obj) - 1]) + "\n]"
         return string
-
