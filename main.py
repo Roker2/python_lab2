@@ -10,3 +10,6 @@ def generate_file():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--type', type=str, help='Type program: one, two, three, four, five, generate_file')
+
+    if vars(parser.parse_args())['type'] == 'generate_file':
+        generate_file()
