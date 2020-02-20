@@ -4,3 +4,5 @@ def obj_to_json(obj):
         return "\"number\": " + str(obj)
     if str(type(obj)) == '<class \'str\'>':
         return "\"string\": \"" + obj + "\""
+    if str(type(obj)) == '<class \'bool\'>':
+        return "\"boolean\": " + str(obj).lower()
