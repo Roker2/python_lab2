@@ -1,4 +1,5 @@
 def obj_to_json(obj):
+    print(type(obj))
     if (str(type(obj)) == '<class \'int\'>') | (str(type(obj)) == '<class \'float\'>') \
             | (str(type(obj)) == '<class \'long\'>'):
         return "\"number\": " + str(obj)
