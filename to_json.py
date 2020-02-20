@@ -13,6 +13,13 @@ def obj_to_json(obj):
             string += obj_to_json(obj[i]) + ",\n"
         string += obj_to_json(obj[len(obj) - 1]) + "\n]"
         return string
+    if str(type(obj)) == '<class \'dict\'>':
+        string = "\"object\": {\n"
+        for key in dict(obj).keys():
+            string += obj_with_to_json(obj[key], key) + ",\n"
+        string = string[:(len(string) - 2)] + string[(len(string) - 2):].replace(",\n", "")
+        string += "\n}"
+        return string
 
 
 def obj_with_to_json(obj, key):
@@ -29,4 +36,11 @@ def obj_with_to_json(obj, key):
         for i in range(0, len(obj) - 1):
             string += obj_to_json(obj[i]) + ",\n"
         string += obj_to_json(obj[len(obj) - 1]) + "\n]"
+        return string
+    if str(type(obj)) == '<class \'dict\'>':
+        string = "\"" + key + "\": {\n"
+        for key in dict(obj).keys():
+            string += obj_with_to_json(obj[key], key) + ",\n"
+        string = string[:(len(string) - 2)] + string[(len(string) - 2):].replace(",\n", "")
+        string += "\n}"
         return string
