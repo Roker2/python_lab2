@@ -6,3 +6,10 @@ def obj_to_json(obj):
         return "\"string\": \"" + obj + "\""
     if str(type(obj)) == '<class \'bool\'>':
         return "\"boolean\": " + str(obj).lower()
+    if str(type(obj)) == '<class \'list\'>':
+        string = "\"array\": [\n"
+        for i in range(0, len(obj) - 1):
+            string += obj_to_json(obj[i]) + ",\n"
+        string += obj_to_json(obj[len(obj) - 1]) + "\n]"
+        return string
+
