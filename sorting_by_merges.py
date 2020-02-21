@@ -32,3 +32,8 @@ def read_n_line(filename, n):
         for _ in range (1, n):
             file.readline()
         return file.readline()
+
+
+def count_lines_in_file(filename):
+    file = open(filename)
+    return sum(1 for line in file)
