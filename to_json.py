@@ -13,7 +13,7 @@ def obj_to_json(obj):
         return dict_to_json(obj)
 
 
-def obj_with_to_json(obj, key):
+def obj_with_key_to_json(obj, key):
     # print(str(type(obj)) + key)
     if (str(type(obj)) == '<class \'int\'>') | (str(type(obj)) == '<class \'float\'>') \
             | (str(type(obj)) == '<class \'long\'>'):
@@ -47,7 +47,7 @@ def list_to_json(obj, key="array"):
 def dict_to_json(obj, key="object"):
     string = "\"" + key + "\": {\n"
     for key in dict(obj).keys():
-        string += obj_with_to_json(obj[key], key) + ",\n"
+        string += obj_with_key_to_json(obj[key], key) + ",\n"
     string = string[:(len(string) - 2)] + string[(len(string) - 2):].replace(",\n", "")
     string += "\n}"
     return string
