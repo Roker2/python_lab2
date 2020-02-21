@@ -25,3 +25,10 @@ def merge_sort(data):
     center = len(data) // 2
     return merge(merge_sort(data[:center]),
                  merge_sort(data[center:]))
+
+
+def read_n_line(filename, n):
+    with open(filename, "r") as file:
+        for _ in range (1, n):
+            file.readline()
+        return file.readline()
