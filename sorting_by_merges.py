@@ -17,6 +17,10 @@ def sort_merge(filename):
             print("i + left_index=" + str(i + left_index) + ": " + file_work.read_n_line(filename, i + left_index) + '\n')
             """
             for _ in range(n * 2):
+                if file_work.read_n_line(filename, i + left_index) == '':
+                    continue
+                elif file_work.read_n_line(filename, i + right_index + n) == '':
+                    right_index = n
                 if (left_index < n) & (right_index < n):
                     if int(file_work.read_n_line(filename, i + left_index)) <= int(file_work.read_n_line(filename, i + right_index + n)):
                         file.write(file_work.read_n_line(filename, i + left_index))
