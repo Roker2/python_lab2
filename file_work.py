@@ -1,16 +1,6 @@
-"""
-def sort_merge(filename):
-    i = 1
-    n = 1
-    count = count_lines_in_file(filename)
-    remainder = count % n
-    left_index =
-"""
-
-
 def read_n_line(filename, n):
     with open(filename, "r") as file:
-        for _ in range (1, n):
+        for _ in range(1, n):
             file.readline()
         return file.readline()
 
