@@ -4,10 +4,9 @@ import file_work
 def sort_merge(filename):
     n = 1
     count = file_work.count_lines_in_file(filename)
-    remainder = count % n
     left_index = 0
     right_index = 0
-    while n <= count // 2:
+    while n <= count:
         i = 1
         file = open("sorted" + str(n) + ".txt", "w")
         while i <= count:
