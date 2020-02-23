@@ -10,7 +10,7 @@ def sort_merge(filename):
     while n <= count // 2:
         i = 1
         file = open("sorted" + str(n) + ".txt", "w")
-        while i + 1 <= count:
+        while i <= count:
             """
             print("i=" + str(i))
             print("i + right_index + n=" + str(i + right_index + n) + ": " + file_work.read_n_line(filename, i + right_index + n))
