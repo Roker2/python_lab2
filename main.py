@@ -1,6 +1,7 @@
 import argparse
 import random
 import to_json
+import sorting_by_merges
 
 
 def generate_file(quantity=500000000):
@@ -18,3 +19,5 @@ if __name__ == '__main__':
         MyDict = {"one": 1, "second": "LOL", "massiv": [555, 666], "Dict2": {"heh": 555, "kek": "lol"}, "bool": True}
         print(MyDict)
         print(to_json.obj_to_json(MyDict))
+    if vars(parser.parse_args())['type'] == 'one':
+        sorting_by_merges.sort_merge("numbers.txt")
