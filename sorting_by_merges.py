@@ -9,7 +9,7 @@ def sort_merge(filename):
     left_index = 0
     right_index = 0
     file = open("sorted.txt", "w")
-    while i + 1 <= count // n:
+    while i + 1 <= count:
         """
         print("i=" + str(i))
         print("i + right_index + n=" + str(i + right_index + n) + ": " + file_work.read_n_line(filename, i + right_index + n))
