@@ -2,6 +2,11 @@ import argparse
 import random
 import to_json
 import sorting_by_merges
+import math
+
+
+def plus_and_pow(a, b, n):
+    return math.pow(a + b, n)
 
 
 def generate_file(quantity=500000000):
