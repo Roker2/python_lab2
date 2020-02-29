@@ -5,6 +5,14 @@ import sorting_by_merges
 import math
 
 
+def cached(func):
+    def wrapper(arg1, arg2, arg3):
+        print("Something here...")
+        return func(arg1, arg2, arg3)
+    return wrapper
+
+
+@cached
 def plus_and_pow(a, b, n):
     return math.pow(a + b, n)
 
@@ -25,3 +33,4 @@ if __name__ == '__main__':
         print(to_json.obj_to_json(MyDict))
     if vars(parser.parse_args())['type'] == 'one':
         sorting_by_merges.sort_merge("numbers.txt")
+    print(plus_and_pow(2, 3, 3))
