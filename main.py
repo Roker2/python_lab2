@@ -17,7 +17,7 @@ def generate_file(quantity='500000000'):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--type', type=str, help='Type program: one, two, three, four, five')
-    parser.add_argument('-g', '--generate_file', type= generate_file)
+    parser.add_argument('-g', '--generate_file', type=generate_file)
 
     if vars(parser.parse_args())['type'] == 'two':
         MyDict = {"one": 1, "second": "LOL", "massiv": [555, 666], "Dict2": {"heh": 555, "kek": "lol"}, "bool": True}
