@@ -3,3 +3,4 @@ venv
 __pycache__
 numbers.txt
 sorted.txt
+cache
