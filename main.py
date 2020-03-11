@@ -5,6 +5,7 @@ import sorting_by_merges
 import math
 import os
 from pathlib import Path
+import vector
 
 
 def count_lines_in_file(filename, n=1):
@@ -69,3 +70,14 @@ if __name__ == '__main__':
     if vars(parser.parse_args())['type'] == 'four':
         print(plus_and_pow(2, 3, 100))
         print(plus_and_pow(2, 3, 3))
+    if vars(parser.parse_args())['type'] == 'three':
+        test1 = vector.Vector([5, 5])
+        test2 = vector.Vector([5, 5])
+        print(test1)
+        print(test2 + test1)
+        print(test2 - test1)
+        print(test2 * test1)
+        print(test1.mul_number(5))
+        print(test1 == test2)
+        print(test1.get_length())
+        print(test1[0])
