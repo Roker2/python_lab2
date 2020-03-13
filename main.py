@@ -40,8 +40,9 @@ def cached(func):
             with open(filename, "r") as file:
                 for _ in range(0, count_lines_in_file(filename)):
                     string_cache += file.readline()
-        string_cache += str(args[0]) + ' ' + str(args[1]) + ' ' + str(args[2]) + ' '
-        returned = func(args[0], args[1], args[2])
+        for i in range(0, len(args)):
+            string_cache += str(args[i]) + ' '
+        returned = func(*args)
         string_cache += str(returned) + '\n'
         with open(filename, "w") as file:
             file.write(string_cache)
@@ -53,6 +54,11 @@ def cached(func):
 @cached
 def plus_and_pow(a, b, n):
     return math.pow(a + b, n)
+
+
+@cached
+def plus_four_digits(a, b, c, d):
+    return a + b + c + d
 
 
 def generate_file(quantity='500000000'):
@@ -74,6 +80,7 @@ if __name__ == '__main__':
     if vars(parser.parse_args())['type'] == 'four':
         print(plus_and_pow(2, 3, 100))
         print(plus_and_pow(2, 3, 3))
+        print(plus_four_digits(1, 2, 3, 4))
     if vars(parser.parse_args())['type'] == 'three':
         test1 = vector.Vector([5, 5])
         test2 = vector.Vector([5, 5])
