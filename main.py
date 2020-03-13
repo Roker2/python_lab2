@@ -18,7 +18,7 @@ def count_lines_in_file(filename, n=1):
 
 
 def cached(func):
-    def wrapper(arg1, arg2, arg3):
+    def wrapper(*args):
         cache_folder = "./cache"
         if not Path(cache_folder).is_dir():
             os.mkdir(cache_folder)
@@ -28,7 +28,7 @@ def cached(func):
                 for _ in range(0, count_lines_in_file(filename)):
                     temp_list = file.readline().split()
                     # print(temp_list)
-                    if (str(arg1) == temp_list[0]) & (str(arg2) == temp_list[1]) & (str(arg3) == temp_list[2]):
+                    if (str(args[0]) == temp_list[0]) & (str(args[1]) == temp_list[1]) & (str(args[2]) == temp_list[2]):
                         print("Found!")
                         return float(temp_list[3])
         string_cache = ''
@@ -36,8 +36,8 @@ def cached(func):
             with open(filename, "r") as file:
                 for _ in range(0, count_lines_in_file(filename)):
                     string_cache += file.readline()
-        string_cache += str(arg1) + ' ' + str(arg2) + ' ' + str(arg3) + ' '
-        returned = func(arg1, arg2, arg3)
+        string_cache += str(args[0]) + ' ' + str(args[1]) + ' ' + str(args[2]) + ' '
+        returned = func(args[0], args[1], args[2])
         string_cache += str(returned) + '\n'
         with open(filename, "w") as file:
             file.write(string_cache)
