@@ -28,9 +28,13 @@ def cached(func):
                 for _ in range(0, count_lines_in_file(filename)):
                     temp_list = file.readline().split()
                     # print(temp_list)
-                    if (str(args[0]) == temp_list[0]) & (str(args[1]) == temp_list[1]) & (str(args[2]) == temp_list[2]):
-                        print("Found!")
-                        return float(temp_list[3])
+                    if len(args) == len(temp_list) - 1:
+                        for i in range(0, len(args)):
+                            if str(args[i]) != temp_list[i]:
+                                break
+                        else:
+                            print("Found!")
+                            return temp_list[len(temp_list) - 1]
         string_cache = ''
         if Path(filename).is_file():
             with open(filename, "r") as file:
