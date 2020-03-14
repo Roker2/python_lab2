@@ -6,15 +6,46 @@ import math
 import os
 from pathlib import Path
 import vector
+import unittest
+import file_work
 
 
-def count_lines_in_file(filename, n=1):
-    file = open(filename)
-    summa = sum(1 for line in file) - n + 1
-    if summa < 0:
-        return -1
-    else:
-        return summa
+class SortingTest(unittest.TestCase):
+    def test_it_can_be_sorted(self):
+        """
+        test_massive = []
+        with open('test.txt', 'w') as f:
+            for _ in range(int(100)):
+                random_digit = random.randint(-1000000, 1000000)
+                test_massive.append(random_digit)
+                f.writelines('{}\n'.format(random_digit))
+        """
+        with open('test.txt', 'w') as f:
+            f.writelines('{}\n'.format(random.randint(-1000000, 1000000)) for _ in range(int(100)))
+            f.write('Hey')
+        with self.assertRaises(Exception):
+            sorting_by_merges.sort_merge('test.txt')
+
+    def test_is_sorted(self):
+        with open('test.txt', 'w') as f:
+            f.writelines('{}\n'.format(random.randint(-1000000, 1000000)) for _ in range(int(100)))
+        sorting_by_merges.sort_merge('test.txt')
+        massive = []
+        lines_count = file_work.count_lines_in_file('sorted.txt')
+        for i in range(lines_count):
+            massive.append(int(file_work.read_n_line('sorted.txt', i)))
+        self.assertEqual(sorted(massive), massive)
+
+
+class CachedTest(unittest.TestCase):
+    def test_right_answer(self):
+        self.assertEqual(int(plus_four_digits(1, 2, 3, 4)), 10)
+
+    def test_file_exist(self):
+        os.mkdir("./cache/file.txt")
+        with self.assertRaises(IsADirectoryError):
+            print(plus_four_digits(1, 2, 3, 4))
+        os.removedirs("./cache/file.txt")
 
 
 def cached(func):
@@ -25,7 +56,7 @@ def cached(func):
         filename = "cache/file.txt"
         if Path(filename).is_file():
             with open(filename, "r") as file:
-                for _ in range(0, count_lines_in_file(filename)):
+                for _ in range(0, file_work.count_lines_in_file(filename)):
                     temp_list = file.readline().split()
                     # print(temp_list)
                     if len(args) == len(temp_list) - 1:
@@ -38,7 +69,7 @@ def cached(func):
         string_cache = ''
         if Path(filename).is_file():
             with open(filename, "r") as file:
-                for _ in range(0, count_lines_in_file(filename)):
+                for _ in range(0, file_work.count_lines_in_file(filename)):
                     string_cache += file.readline()
         for i in range(0, len(args)):
             string_cache += str(args[i]) + ' '
@@ -92,3 +123,4 @@ if __name__ == '__main__':
         print(test1 == test2)
         print(test1.get_length())
         print(test1[0])
+    unittest.main()
