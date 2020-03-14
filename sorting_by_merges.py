@@ -38,9 +38,9 @@ def sort_merge(filename):
             i += n * 2
             left_index = 0
             right_index = 0
+        file.close()
         if filename != orig_filename:
             os.remove(filename)
-        file.close()
         filename = file.name
         n *= 2
     os.rename("sorted" + str(n // 2) + ".txt", "sorted.txt")
