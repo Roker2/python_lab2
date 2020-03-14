@@ -114,8 +114,8 @@ def plus_four_digits(a, b, c, d):
     return a + b + c + d
 
 
-def generate_file(quantity='500000000'):
-    with open('numbers.txt', 'w') as f:
+def generate_file(quantity='500000000', filename="numbers.txt"):
+    with open(filename, 'w') as f:
         f.writelines('{}\n'.format(random.randint(-1000000, 1000000)) for _ in range(int(quantity)))
 
 
