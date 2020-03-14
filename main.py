@@ -57,6 +57,18 @@ class JSONTest(unittest.TestCase):
         self.assertIsNone(to_json.obj_to_json((5, 5)))  # tuple
 
 
+class VectorTest(unittest.TestCase):
+    def test_plus(self):
+        self.assertEqual(vector.Vector([5, 5]) + vector.Vector([5, 5]), vector.Vector([10, 10]))
+
+    def test_can_not_plus(self):
+        self.assertIsNone(vector.Vector([5, 5]) + vector.Vector([5, 5, 5]))
+
+    def test_plus_not_vector(self):
+        with self.assertRaises(AttributeError):
+            print(vector.Vector([5, 5]) + 5)
+
+
 def cached(func):
     def wrapper(*args):
         cache_folder = "./cache"
