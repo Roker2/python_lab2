@@ -42,10 +42,19 @@ class CachedTest(unittest.TestCase):
         self.assertEqual(int(plus_four_digits(1, 2, 3, 4)), 10)
 
     def test_file_exist(self):
+        os.remove("./cache/file.txt")
         os.mkdir("./cache/file.txt")
         with self.assertRaises(IsADirectoryError):
             print(plus_four_digits(1, 2, 3, 4))
         os.removedirs("./cache/file.txt")
+
+
+class JSONTest(unittest.TestCase):
+    def test_is_str(self):
+        self.assertTrue(to_json.obj_to_json([5, 5, 6]).__class__, str)
+
+    def test_not_support(self):
+        self.assertIsNone(to_json.obj_to_json((5, 5)))  # tuple
 
 
 def cached(func):
@@ -79,6 +88,7 @@ def cached(func):
             file.write(string_cache)
         print("Saved")
         return returned
+
     return wrapper
 
 
