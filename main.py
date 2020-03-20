@@ -54,7 +54,7 @@ class JSONTest(unittest.TestCase):
         self.assertTrue(to_json.obj_to_json([5, 5, 6]).__class__, str)
 
     def test_not_support(self):
-        self.assertIsNone(to_json.obj_to_json((5, 5)))  # tuple
+        self.assertIsNone(to_json.obj_to_json({i ** 2 for i in range(10)}))  # set
 
 
 class VectorTest(unittest.TestCase):
