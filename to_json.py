@@ -6,7 +6,7 @@ def obj_to_json(obj):
         return str_to_json(obj)
     if obj.__class__ == bool:
         return bool_to_json(obj)
-    if obj.__class__ == list:
+    if (obj.__class__ == list) | (obj.__class__ == tuple):
         return list_to_json(obj)
     if obj.__class__ == dict:
         return dict_to_json(obj)
@@ -20,7 +20,7 @@ def obj_with_key_to_json(obj, key):
         return str_to_json(obj, key)
     if obj.__class__ == bool:
         return bool_to_json(obj, key)
-    if obj.__class__ == list:
+    if (obj.__class__ == list) | (obj.__class__ == tuple):
         return list_to_json(obj, key)
     if obj.__class__ == dict:
         return dict_to_json(obj, key)
