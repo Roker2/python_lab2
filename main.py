@@ -114,35 +114,52 @@ def plus_four_digits(a, b, c, d):
     return a + b + c + d
 
 
+def program_one(filename="numbers.txt"):
+    sorting_by_merges.sort_merge(filename)
+
+
+def program_two():
+    MyDict = {"one": 1, "second": "LOL", "massiv": [555, 666], "Dict2": {"heh": 555, "kek": "lol"}, "bool": True}
+    print(MyDict)
+    print(to_json.obj_to_json(MyDict))
+
+
+def program_three():
+    test1 = vector.Vector([5, 5])
+    test2 = vector.Vector([5, 5])
+    print(test1)
+    print(test2 + test1)
+    print(test2 - test1)
+    print(test2 * test1)
+    print(test1.mul_number(5))
+    print(test1 == test2)
+    print(test1.get_length())
+    print(test1[0])
+
+
+def program_four():
+    print(plus_and_pow(2, 3, 100))
+    print(plus_and_pow(2, 3, 3))
+    print(plus_four_digits(1, 2, 3, 4))
+
+
+def program_five():
+    unittest.main()
+
+
 def generate_file(quantity='500000000', filename="numbers.txt"):
     with open(filename, 'w') as f:
         f.writelines('{}\n'.format(random.randint(-1000000, 1000000)) for _ in range(int(quantity)))
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--type', type=str, help='Type program: one, two, three, four, five')
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
     parser.add_argument('-g', '--generate_file', type=generate_file)
-
-    if vars(parser.parse_args())['type'] == 'two':
-        MyDict = {"one": 1, "second": "LOL", "massiv": [555, 666], "Dict2": {"heh": 555, "kek": "lol"}, "bool": True}
-        print(MyDict)
-        print(to_json.obj_to_json(MyDict))
-    if vars(parser.parse_args())['type'] == 'one':
-        sorting_by_merges.sort_merge("numbers.txt")
-    if vars(parser.parse_args())['type'] == 'four':
-        print(plus_and_pow(2, 3, 100))
-        print(plus_and_pow(2, 3, 3))
-        print(plus_four_digits(1, 2, 3, 4))
-    if vars(parser.parse_args())['type'] == 'three':
-        test1 = vector.Vector([5, 5])
-        test2 = vector.Vector([5, 5])
-        print(test1)
-        print(test2 + test1)
-        print(test2 - test1)
-        print(test2 * test1)
-        print(test1.mul_number(5))
-        print(test1 == test2)
-        print(test1.get_length())
-        print(test1[0])
-    unittest.main()
+    parser.add_argument('--one', type=program_one)
+    parser.add_argument('--two', type=program_two)
+    parser.add_argument('--three', type=program_three)
+    parser.add_argument('--four', type=program_four)
+    parser.add_argument('--five', type=program_five)
+    parser.parse_args()
