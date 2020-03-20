@@ -1,30 +1,28 @@
 def obj_to_json(obj):
     # print(type(obj))
-    if (str(type(obj)) == '<class \'int\'>') | (str(type(obj)) == '<class \'float\'>') \
-            | (str(type(obj)) == '<class \'long\'>'):
+    if (obj.__class__ == int) | (obj.__class__ == float):
         return "\"number\": " + str(obj)
-    if str(type(obj)) == '<class \'str\'>':
+    if obj.__class__ == str:
         return str_to_json(obj)
-    if str(type(obj)) == '<class \'bool\'>':
+    if obj.__class__ == bool:
         return bool_to_json(obj)
-    if str(type(obj)) == '<class \'list\'>':
+    if obj.__class__ == list:
         return list_to_json(obj)
-    if str(type(obj)) == '<class \'dict\'>':
+    if obj.__class__ == dict:
         return dict_to_json(obj)
 
 
 def obj_with_key_to_json(obj, key):
     # print(str(type(obj)) + key)
-    if (str(type(obj)) == '<class \'int\'>') | (str(type(obj)) == '<class \'float\'>') \
-            | (str(type(obj)) == '<class \'long\'>'):
+    if (obj.__class__ == int) | (obj.__class__ == float):
         return "\"" + key + "\": " + str(obj)
-    if str(type(obj)) == '<class \'str\'>':
+    if obj.__class__ == str:
         return str_to_json(obj, key)
-    if str(type(obj)) == '<class \'bool\'>':
+    if obj.__class__ == bool:
         return bool_to_json(obj, key)
-    if str(type(obj)) == '<class \'list\'>':
+    if obj.__class__ == list:
         return list_to_json(obj, key)
-    if str(type(obj)) == '<class \'dict\'>':
+    if obj.__class__ == dict:
         return dict_to_json(obj, key)
 
 
