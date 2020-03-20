@@ -1,5 +1,6 @@
 from math import sqrt
 
+
 class Vector:
 
     def __init__(self, massive_one):
