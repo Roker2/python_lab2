@@ -119,7 +119,7 @@ def program_one(filename="numbers.txt"):
 
 
 def program_two():
-    MyDict = {"one": 1, "second": "LOL", "massiv": [555, 666], "Dict2": {"heh": 555, "kek": "lol"}, "bool": True}
+    MyDict = {"one": 1, "second": "LOL", "massiv": [555, 666], "Dict2": {"heh": 555, "kek": "lol"}, "bool": True, "tuple": (555, 56)}
     print(MyDict)
     print(to_json.obj_to_json(MyDict))
 
