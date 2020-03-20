@@ -157,14 +157,9 @@ if __name__ == '__main__':
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     parser.add_argument('-g', '--generate_file', type=generate_file)
-    parser.add_argument('--type', type=str, help='Type program: one, two, three, four, five')
+    parser.add_argument('--one', type=program_one)
+    parser.add_argument('--two', type=program_two)
+    parser.add_argument('--three', type=program_three)
+    parser.add_argument('--four', type=program_four)
+    parser.add_argument('--five', type=program_five)
     parser.parse_args()
-    if vars(parser.parse_args())['type'] == 'one':
-        program_one()
-    if vars(parser.parse_args())['type'] == 'two':
-        program_two()
-    if vars(parser.parse_args())['type'] == 'three':
-        program_three()
-    if vars(parser.parse_args())['type'] == 'four':
-        program_four()
-    # program_five()
