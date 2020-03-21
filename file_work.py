@@ -7,8 +7,8 @@ def read_n_line(filename, n):
 
 def count_lines_in_file(filename, n=1):
     with open(filename, "r") as file:
-        summa = sum(1 for line in file) - n + 1
-    if summa < 0:
+        lines_count = sum(1 for line in file) - n + 1
+    if lines_count < 0:
         return -1
     else:
-        return summa
+        return lines_count
