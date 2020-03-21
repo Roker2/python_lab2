@@ -147,9 +147,9 @@ def program_five():
     unittest.main()
 
 
-def generate_file(quantity='500000000', filename="numbers.txt"):
-    with open(filename, 'w') as f:
-        f.writelines('{}\n'.format(random.randint(-1000000, 1000000)) for _ in range(int(quantity)))
+def generate_file(quantity="500000000", filename="numbers.txt"):
+    with open(filename, "w") as f:
+        f.writelines("{}\n".format(random.randint(-1000000, 1000000)) for _ in range(int(quantity)))
 
 
 if __name__ == '__main__':
