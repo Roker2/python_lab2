@@ -157,9 +157,17 @@ if __name__ == '__main__':
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     parser.add_argument('-g', '--generate_file', type=generate_file)
-    parser.add_argument('--one', type=program_one)
-    parser.add_argument('--two', type=program_two)
-    parser.add_argument('--three', type=program_three)
-    parser.add_argument('--four', type=program_four)
-    parser.add_argument('--five', type=program_five)
+    parser.add_argument('--one', type=program_one, const='numbers.txt', nargs='?')
+    parser.add_argument('--two', action='store_true')
+    parser.add_argument('--three', action='store_true')
+    parser.add_argument('--four', action='store_true')
+    parser.add_argument('--five', action='store_true')
     parser.parse_args()
+    if vars(parser.parse_args())['two']:
+        program_two()
+    if vars(parser.parse_args())['three']:
+        program_three()
+    if vars(parser.parse_args())['four']:
+        program_four()
+    if vars(parser.parse_args())['five']:
+        program_five()
